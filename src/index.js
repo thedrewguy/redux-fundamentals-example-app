@@ -7,12 +7,6 @@ import './api/server'
 
 import store from './store'
 
-console.log('Initial state: ', store.getState())
-
-const unsubscribe = store.subscribe(() =>
-  console.log('State after dispatch: ', store.getState())
-)
-
 store.dispatch({ type: 'todos/todoAdded', payload: 'Learn React' })
 store.dispatch({ type: 'todos/todoAdded', payload: 'Learn Redux' })
 store.dispatch({ type: 'todos/todoAdded', payload: 'Build Stuff' })
@@ -26,8 +20,6 @@ store.dispatch({
   type: 'filters/colorFilterChanged',
   payload: { changeType: 'added', color: 'green' },
 })
-
-unsubscribe()
 
 ReactDOM.render(
   <React.StrictMode>
